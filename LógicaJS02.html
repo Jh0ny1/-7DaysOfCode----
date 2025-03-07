@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição</title>
+</head>
+<body>
+    <h1>Formulário de Inscrição</h1>
+    <form id="inscricao">
+        <label for="nome">Qual o seu nome?</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="idade">Quantos anos você tem?</label><br>
+        <input type="number" id="idade" name="idade" required><br><br>
+
+        <label for="linguagem">Qual linguagem de programação você está estudando?</label><br>
+        <input type="text" id="linguagem" name="linguagem" required><br><br>
+
+        <label for="nota">Você gosta de estudar essa linguagem? (Responda 1 para SIM ou 2 para NÃO)</label><br>
+        <input type="number" id="nota" name="nota" min="1" max="2"><br><br>
+
+        <input type="button" value="Enviar" onclick="processarInscricao()">
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function processarInscricao() {
+            const nome = document.getElementById('nome').value;
+            const idade = document.getElementById('idade').value;
+            const linguagem = document.getElementById('linguagem').value;
+            const nota = document.getElementById('nota').value;
+
+            let resultado = `Olá ${nome}, você tem ${idade} anos e já está aprendendo ${linguagem}!`;
+
+            if (nota === "1") {
+                resultado += `\nMuito bom! Continue estudando e você terá muito sucesso.`;
+            } else if (nota === "2") {
+                resultado += `\nAhh que pena... Já tentou aprender outras linguagens?`;
+            }
+
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</body>
+</html>

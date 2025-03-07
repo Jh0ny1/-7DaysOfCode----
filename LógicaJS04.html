@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advinhe o numero</title>
+</head>
+<body>
+    <script>
+        alert("Bem-vindo ao jogo de adivinhação! Tente adivinhar o número que estou pensando entre 0 e 10.");
+        let numero = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+        alert("O número que estou pensando é: " + numero);
+        let tentativas = 3;
+        let acertou = false;
+        while (tentativas > 0) {
+            let palpite = parseInt(prompt("Você tem " + tentativas + " tentativas. Qual é o seu palpite?"));
+            if (palpite === numero) {
+                alert("Parabéns! Você acertou o número.");
+                acertou = true;
+                break;
+            } else if (palpite < numero) {
+                alert("O número que estou pensando é maior.");
+            } else {
+                alert("O número que estou pensando é menor.");
+            }
+            tentativas--;
+            if (tentativas === 0) {
+                alert("Suas tentativas acabaram! O número que eu estava pensando era: " + numero);
+            }
+        }
+    </script>
+</body>
+</html>

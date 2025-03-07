@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha de Carreira</title>
+</head>
+<body>
+    <script>
+        let area = prompt("Você quer seguir para a área de Front-End ou Back-End?").toLowerCase().trim();
+
+        if (area === "front-end" || area === "frontend" || area === "front end" || area === "front") {
+            let frontEndChoice = prompt("Você quer aprender React ou Vue?").toLowerCase().trim();
+            if (frontEndChoice === "react") {
+                alert("Você escolheu aprender React. Ótima escolha, React é uma das bibliotecas mais populares!");
+            } else if (frontEndChoice === "vue") {
+                alert("Você escolheu aprender Vue. Vue é uma excelente opção também, muito usado para criar interfaces interativas.");
+            } else {
+                alert("Escolha inválida!");
+            }
+        } else if (area === "back-end" || area === "backend" || area === "back end" || area === "back") {
+            let backEndChoice = prompt("Você quer aprender C# ou Java?").toLowerCase().trim();
+            if (backEndChoice === "c#") {
+                alert("Você escolheu aprender C#. C# é uma linguagem poderosa, usada principalmente para aplicações Windows.");
+            } else if (backEndChoice === "java") {
+                alert("Você escolheu aprender Java. Java é uma linguagem muito popular, usada em grandes sistemas corporativos.");
+            } else {
+                alert("Escolha inválida!");
+            }
+        } else {
+            alert("Escolha inválida! Por favor, escolha entre Front-End ou Back-End.");
+        }
+
+        let careerPath = prompt("Você quer se 'especializar' na área escolhida ou seguir para 'Fullstack'?").toLowerCase().trim();
+        if (careerPath === "especializar") {
+            alert("Você escolheu se especializar! Boa sorte na sua jornada.");
+        } else if (careerPath === "fullstack") {
+            alert("Você escolheu se tornar Fullstack! Um caminho interessante e desafiador.");
+        } else {
+            alert("Escolha inválida!");
+        }
+
+        let technologies = [];
+        let addMore = true;
+
+        while (addMore) {
+            let tech = prompt("Qual tecnologia você gostaria de aprender?").trim();
+            technologies.push(tech);
+            addMore = prompt("Tem mais alguma tecnologia que você gostaria de aprender? Responda com 'ok' para continuar ou 'não' para parar.").toLowerCase().trim() === "ok";
+        }
+
+        alert("Você gostaria de aprender as seguintes tecnologias: " + technologies.join(", "));
+
+        for (let tech of technologies) {
+            alert(`Legal! ${tech} é uma ótima escolha!`);
+        }
+    </script>
+</body>
+</html>

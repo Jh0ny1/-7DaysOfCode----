@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+        #shoppingList {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .category {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Lista de Compras 🛒</h2>
+        <input type="text" id="itemName" placeholder="Nome do item">
+        <input type="text" id="itemCategory" placeholder="Categoria">
+        <button onclick="addItem()">Adicionar Item</button>
+
+        <h3>Sua Lista:</h3>
+        <div id="shoppingList"></div>
+    </div>
+
+    <script>
+        let shoppingList = [];
+
+        function addItem() {
+            let itemName = document.getElementById("itemName").value.trim();
+            let itemCategory = document.getElementById("itemCategory").value.trim();
+
+            if (itemName === "" || itemCategory === "") {
+                alert("Por favor, preencha ambos os campos!");
+                return;
+            }
+
+            shoppingList.push({ name: itemName, category: itemCategory });
+            document.getElementById("itemName").value = "";
+            document.getElementById("itemCategory").value = "";
+
+            displayList();
+        }
+
+        function displayList() {
+            let listContainer = document.getElementById("shoppingList");
+            listContainer.innerHTML = "";
+
+            let categories = {};
+            shoppingList.forEach(item => {
+                if (!categories[item.category]) {
+                    categories[item.category] = [];
+                }
+                categories[item.category].push(item.name);
+            });
+
+            for (let category in categories) {
+                let categoryElement = document.createElement("p");
+                categoryElement.className = "category";
+                categoryElement.innerHTML = `${category}: <span>${categories[category].join(", ")}</span>`;
+                listContainer.appendChild(categoryElement);
+            }
+        }
+    </script>
+
+</body>
+</html>
