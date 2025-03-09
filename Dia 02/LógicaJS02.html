@@ -4,26 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Inscrição</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Cinza claro */
+            color: #333; /* Cinza escuro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="button"] {
+            background-color: #6a0dad; /* Roxo */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="button"]:hover {
+            background-color: #5a0cad; /* Roxo mais escuro */
+        }
+    </style>
 </head>
 <body>
-    <h1>Formulário de Inscrição</h1>
-    <form id="inscricao">
-        <label for="nome">Qual o seu nome?</label><br>
-        <input type="text" id="nome" name="nome" required><br><br>
+    <div class="container">
+        <h1>Formulário de Inscrição</h1>
+        <form id="inscricao">
+            <label for="nome">Qual o seu nome?</label><br>
+            <input type="text" id="nome" name="nome" required><br><br>
 
-        <label for="idade">Quantos anos você tem?</label><br>
-        <input type="number" id="idade" name="idade" required><br><br>
+            <label for="idade">Quantos anos você tem?</label><br>
+            <input type="number" id="idade" name="idade" required><br><br>
 
-        <label for="linguagem">Qual linguagem de programação você está estudando?</label><br>
-        <input type="text" id="linguagem" name="linguagem" required><br><br>
+            <label for="linguagem">Qual linguagem de programação você está estudando?</label><br>
+            <input type="text" id="linguagem" name="linguagem" required><br><br>
 
-        <label for="nota">Você gosta de estudar essa linguagem? (Responda 1 para SIM ou 2 para NÃO)</label><br>
-        <input type="number" id="nota" name="nota" min="1" max="2"><br><br>
+            <label for="nota">Você gosta de estudar essa linguagem? (Responda 1 para SIM ou 2 para NÃO)</label><br>
+            <input type="number" id="nota" name="nota" min="1" max="2"><br><br>
 
-        <input type="button" value="Enviar" onclick="processarInscricao()">
-    </form>
+            <input type="button" value="Enviar" onclick="processarInscricao()">
+        </form>
 
-    <p id="resultado"></p>
+        <p id="resultado"></p>
+    </div>
 
     <script>
         function processarInscricao() {
